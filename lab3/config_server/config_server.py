@@ -47,4 +47,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Запуск Flask-сервера на всіх інтерфейсах, порт 8888
-    app.run(host="0.0.0.0", port=4308)
+    app.run(host="0.0.0.0", port=8888)
