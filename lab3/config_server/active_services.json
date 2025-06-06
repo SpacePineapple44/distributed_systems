@@ -4,7 +4,7 @@
     "http://logging2:8883",
     "http://logging3:8885"
   ],
-  "messages-service": [
-    "http://messages-service:8882"
+  "message_service": [
+    "http://message_service:8882"
   ]
 }
