@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify
 gateway_app = Flask(__name__)
 
 # Адреса сервера конфігурації
-SERVICE_REGISTRY_URL = "http://config-server:8888"
+SERVICE_REGISTRY_URL = "http://config_server:8888"
 
 # ----------- Отримання доступних адрес сервісу -----------
 
@@ -58,14 +58,14 @@ def process_log_entry():
     if request.method == "POST":
         message = request.json.get("msg")
         return delegate_request(
-            service_key="logging-service",
+            service_key="logger_service",
             endpoint_path="/tracker",
             http_method="POST",
             payload={"msg": message}
         )
     else:
         return delegate_request(
-            service_key="logging-service",
+            service_key="logger_service",
             endpoint_path="/tracker",
             http_method="GET"
         )
