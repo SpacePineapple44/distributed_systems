@@ -1,0 +1,31 @@
+syntax = "proto3"; // Використовуємо третю версію Protocol Buffers
+
+package tracker; // Простір імен (namespace) для всіх типів і сервісів
+
+// Визначення сервісу з двома методами
+service Tracker {
+  // Метод для логування: приймає LogRequest, повертає LogResponse
+  rpc LogEntry (LogRequest) returns (LogResponse) {}
+
+  // Метод для отримання всіх логів: не приймає параметрів, повертає EntriesResponse
+  rpc GetEntries (Empty) returns (EntriesResponse) {}
+}
+
+// Повідомлення для логування записів
+message LogRequest {
+  string key = 1;   // Ідентифікатор або тип джерела логу
+  string data = 2;  // Сам текст лог-запису
+}
+
+// Відповідь на логування
+message LogResponse {
+  string status = 1; // Наприклад: "OK", "Failed", тощо
+}
+
+// Порожнє повідомлення для методів без аргументів
+message Empty {}
+
+// Відповідь, яка містить усі записи
+message EntriesResponse {
+  string entries = 1; // Можна зробити масивом: repeated string entries = 1;
+}
